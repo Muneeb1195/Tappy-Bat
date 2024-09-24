@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddoae0mori3pk"]
+
+[ext_resource type="FontFile" uid="uid://bfidqmd73apo3" path="res://Assets/Fonts/Kenney Pixel.ttf" id="1_ick7t"]
+[ext_resource type="Texture2D" uid="uid://4yij4yirsn5" path="res://Assets/UI/Box.png" id="2_mmt42"]
+[ext_resource type="Texture2D" uid="uid://dtsspwscwogj" path="res://Assets/UI/Rectangle.png" id="3_6bbyd"]
+[ext_resource type="Texture2D" uid="uid://blitexo0onxhx" path="res://Assets/UI/Rectangle_pressed.png" id="4_1tl5w"]
+[ext_resource type="Texture2D" uid="uid://bvybv4h83wfrf" path="res://Assets/UI/Rectangle_hover.png" id="5_kec5h"]
+
+[sub_resource type="Theme" id="Theme_wtdsu"]
+default_font = ExtResource("1_ick7t")
+default_font_size = 32
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wtdsu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mmt42")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ExitButton" type="TextureButton" parent="TextureRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("3_6bbyd")
+texture_pressed = ExtResource("4_1tl5w")
+texture_hover = ExtResource("5_kec5h")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/ExitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -6.0
+offset_right = 20.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.792157, 0.129412, 0.427451, 1)
+text = "Exit
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="TextureButton" parent="TextureRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("3_6bbyd")
+texture_pressed = ExtResource("4_1tl5w")
+texture_hover = ExtResource("5_kec5h")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -6.0
+offset_right = 20.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.792157, 0.129412, 0.427451, 1)
+text = "Home
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="TextureButton" parent="TextureRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("3_6bbyd")
+texture_pressed = ExtResource("4_1tl5w")
+texture_hover = ExtResource("5_kec5h")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -6.0
+offset_right = 20.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.792157, 0.129412, 0.427451, 1)
+text = "Restart
+"
+horizontal_alignment = 1
+vertical_alignment = 1

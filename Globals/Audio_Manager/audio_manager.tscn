@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://u33cu5kgnkht"]
+
+[ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="1_6xhi2"]
+[ext_resource type="AudioStream" uid="uid://dsfn5xemvhdyq" path="res://Assets/Music/Background Music.mp3" id="2_fy06a"]
+[ext_resource type="AudioStream" uid="uid://d0705fpsvqx3b" path="res://Assets/Sound Effects/Click.wav" id="3_tia25"]
+[ext_resource type="AudioStream" uid="uid://dflx4s8kiji8s" path="res://Assets/Sound Effects/Death.wav" id="4_cw2xk"]
+[ext_resource type="AudioStream" uid="uid://dhx0w5r6fitul" path="res://Assets/Sound Effects/Fly.wav" id="5_1riyo"]
+[ext_resource type="AudioStream" uid="uid://hc1ljmwtar3t" path="res://Assets/Sound Effects/Game Over.wav" id="6_hme2d"]
+[ext_resource type="AudioStream" uid="uid://nbya5sta0a8r" path="res://Assets/Sound Effects/Record.wav" id="7_koxeg"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_6xhi2")
+
+[node name="BGAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fy06a")
+autoplay = true
+bus = &"Music"
+
+[node name="Tap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tia25")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cw2xk")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Fly" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1riyo")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hme2d")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="ScoreSubmit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_koxeg")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="finished" from="BGAudio" to="." method="_on_bg_audio_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

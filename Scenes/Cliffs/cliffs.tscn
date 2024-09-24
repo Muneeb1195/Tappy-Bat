@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1g5idqlrejbl"]
+
+[ext_resource type="Script" path="res://Scripts/cliffs.gd" id="1_x6kn0"]
+[ext_resource type="Texture2D" uid="uid://bs3455bpaun1x" path="res://Assets/Rocks/Ostacolo_Up.png" id="2_qs73t"]
+[ext_resource type="Texture2D" uid="uid://bjvjp20a8tp22" path="res://Assets/Rocks/Obstacle_Down.png" id="3_hd3al"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8jrk"]
+size = Vector2(2, 200)
+
+[node name="Cliffs" type="Node2D"]
+script = ExtResource("1_x6kn0")
+
+[node name="Top" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="Dirt" type="Sprite2D" parent="Top"]
+texture = ExtResource("2_qs73t")
+offset = Vector2(0, -151)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top"]
+position = Vector2(0, -119.5)
+polygon = PackedVector2Array(6, 119.5, 7, 119.5, 36, -191.5, -68, -191.5, -46, -67.8333, -27, -44.5, -13, -49.8333)
+
+[node name="Bottom" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="Dirt" type="Sprite2D" parent="Bottom"]
+texture = ExtResource("3_hd3al")
+offset = Vector2(0, 151)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottom"]
+position = Vector2(0, 119.5)
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(6, 119.5, 7, 119.5, 36, -191.5, -68, -191.5, -45, -67.5, -27, -44.5, -12, -51.5)
+
+[node name="Point" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Point"]
+position = Vector2(26, 0)
+shape = SubResource("RectangleShape2D_y8jrk")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="Point" to="." method="_on_point_scored"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

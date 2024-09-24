@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://ivmvqhrc0soo"]
+
+[ext_resource type="PackedScene" uid="uid://ddoae0mori3pk" path="res://Scenes/Options_Menu/options_menu.tscn" id="1_posc7"]
+[ext_resource type="Script" path="res://Scripts/lose_screen.gd" id="2_kbudn"]
+[ext_resource type="FontFile" uid="uid://dnic8o2f6k5lt" path="res://Assets/Fonts/Kenney Blocks.ttf" id="4_g2p7v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap5sw"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.784314, 0.27451, 0.196078, 0.490196)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rh2d7"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.784314, 0.27451, 0.196078, 0.490196)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="LoseScreen" instance=ExtResource("1_posc7")]
+script = ExtResource("2_kbudn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="GameOver" type="Label" parent="TextureRect/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_g2p7v")
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentScore" type="Label" parent="TextureRect/MarginContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.980392, 0.666667, 0.745098, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ap5sw")
+text = "Current Score : "
+vertical_alignment = 1
+
+[node name="PlayerName" type="LineEdit" parent="TextureRect/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.980392, 0.666667, 0.745098, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh2d7")
+placeholder_text = "Enter Name..."
+max_length = 12
+expand_to_text_length = true
+clear_button_enabled = true
+caret_blink = true
+
+[node name="MainMenu" parent="TextureRect/MarginContainer/HBoxContainer" index="1"]
+visible = false
+disabled = true
+
+[connection signal="text_submitted" from="TextureRect/MarginContainer/VBoxContainer/PlayerName" to="." method="_on_line_edit_text_submitted"]

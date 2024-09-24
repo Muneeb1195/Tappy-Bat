@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfw84dm2o1yo6"]
+
+[ext_resource type="PackedScene" uid="uid://cujlbmosxwr3d" path="res://Scenes/Background/background.tscn" id="1_jehrt"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_tbhn7"]
+[ext_resource type="PackedScene" uid="uid://doen183wvacci" path="res://Scenes/Player/player.tscn" id="2_tx1ev"]
+[ext_resource type="PackedScene" uid="uid://b5v85wom1ocfk" path="res://Scenes/Ground/ground.tscn" id="4_pvji5"]
+[ext_resource type="PackedScene" uid="uid://rr4jxtfog1kr" path="res://Scenes/Background/fore_ground.tscn" id="4_tvtxo"]
+[ext_resource type="PackedScene" uid="uid://dqsaotn8utc6f" path="res://Scenes/Cliffs/cliff_spawner.tscn" id="4_twkru"]
+[ext_resource type="PackedScene" uid="uid://b11a8c65psyr4" path="res://Scenes/UI/ui.tscn" id="7_ryjxh"]
+
+[node name="Level" type="Node2D" groups=["Level"]]
+script = ExtResource("1_tbhn7")
+
+[node name="Background" parent="." instance=ExtResource("1_jehrt")]
+
+[node name="ForeGround" parent="." instance=ExtResource("4_tvtxo")]
+
+[node name="Player" parent="." instance=ExtResource("2_tx1ev")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.44, 2.44)
+
+[node name="CliffSpawner" parent="." instance=ExtResource("4_twkru")]
+
+[node name="Ground" parent="." instance=ExtResource("4_pvji5")]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0, 0, 0, 1)
+energy = 0.0
+blend_mode = 2
+shadow_filter = 1
+height = 1.0
+max_distance = 100.0
+
+[node name="UI" parent="." instance=ExtResource("7_ryjxh")]
