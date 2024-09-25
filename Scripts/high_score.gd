@@ -9,9 +9,8 @@ func _ready() -> void:
 	for i : int in GameManager.high_scores.size():
 		var label : Label = Label.new()
 		var h_s_arr : Array = GameManager.high_scores[i]
-		label.text = "%2d." % [i+1] + h_s_arr[0] + " %02d" % [h_s_arr[1]]
+		label.text = "%2d." % [i+1] + h_s_arr[0] + " %02d " % [h_s_arr[1]]
 		label.label_settings = LabelSettings.new()
-		label.label_settings.font_size = 22
-		label.label_settings.font_color = Color(0.792, 0.129, 0.427)
+		label.label_settings.font_size = 32
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_FILL
 		v_box.add_child(label)

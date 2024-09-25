@@ -76,7 +76,6 @@ offset_right = 20.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.792157, 0.129412, 0.427451, 1)
 text = "Exit
 "
 horizontal_alignment = 1
@@ -105,7 +104,6 @@ offset_right = 20.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.792157, 0.129412, 0.427451, 1)
 text = "Home
 "
 horizontal_alignment = 1
@@ -134,7 +132,6 @@ offset_right = 20.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.792157, 0.129412, 0.427451, 1)
 text = "Restart
 "
 horizontal_alignment = 1

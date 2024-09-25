@@ -19,9 +19,9 @@ func start_spawning_cliffs() -> void:
 
 func spawn_cliffs() -> void:
 	var cliffs : CliffPair = CliffScene.instantiate()
-	spawn_timer.wait_time = randf_range(1.0,2.0)
+	spawn_timer.wait_time = randf_range(1.5,2.0)
 	cliffs.position.x = viewport_rect.end.x
-	cliffs.position.y = randf_range(-180, 50)
+	cliffs.position.y = randf_range(-160, 50)
 	cliffs._set_speed(cliff_speed)
 	cliffs.point_scored.connect(_point_scored)
 	add_child(cliffs)

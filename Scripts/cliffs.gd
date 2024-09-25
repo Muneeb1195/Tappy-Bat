@@ -25,13 +25,13 @@ func _setup_top() -> void:
 	flip_top = randi_range(0,1)
 	if flip_top:
 		top.scale.x = -1
-	top.position.y = randi_range(-20,-50)
+	top.position.y = randi_range(-35,-50)
 
 func _setup_bottom() -> void:
 	flip_bottom = randi_range(0,1)
 	if flip_bottom:
 		bottom.scale.x = -1
-	bottom.position.y = randi_range(20,50)
+	bottom.position.y = randi_range(35,50)
 
 func _process(delta: float) -> void:
 	position.x += speed * delta

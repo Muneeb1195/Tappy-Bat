@@ -9,20 +9,21 @@ func _ready() -> void:
 
 func _black() -> void:
 	var tween : Tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(color_rect,"color:a",0.9,0.5).from_current()
+	tween.tween_property(color_rect,"color:a",0.9,0.25).from_current()
 	tween.connect("finished", tween.kill)
 
 func _normal() -> void:
 	var tween : Tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(color_rect,"color:a",0.0,0.5).from_current()
+	tween.tween_property(color_rect,"color:a",0.0,0.25).from_current()
 	tween.connect("finished", tween.kill)
 
 func _reload_level() -> void:
 	var tween : Tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(color_rect,"color:a",1.0,0.5).from_current()
+	tween.tween_property(color_rect,"color:a",1.0,0.25).from_current()
 	tween.tween_callback(get_tree().change_scene_to_file.bind("res://Scenes/Level/level.tscn"))
-	tween.tween_property(color_rect,"color:a",0.0,0.5).from_current()
+	tween.tween_property(color_rect,"color:a",0.0,0.25).from_current()
 	tween.connect("finished", tween.kill)
+	
 
 func _pause_game() -> void:
 	get_tree().paused = true

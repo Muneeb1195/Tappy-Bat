@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Play" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(160, 160)
+custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
 texture_normal = ExtResource("1_1nlmd")
 texture_pressed = ExtResource("2_6b8lr")
@@ -63,12 +63,13 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HighScores" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(160, 160)
+custom_minimum_size = Vector2(160, 192)
 layout_mode = 2
 texture_normal = ExtResource("1_1nlmd")
 texture_pressed = ExtResource("2_6b8lr")
@@ -88,12 +89,13 @@ offset_right = 45.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "High Scores"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Exit" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(160, 160)
+custom_minimum_size = Vector2(160, 192)
 layout_mode = 2
 texture_normal = ExtResource("1_1nlmd")
 texture_pressed = ExtResource("2_6b8lr")
@@ -113,6 +115,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1

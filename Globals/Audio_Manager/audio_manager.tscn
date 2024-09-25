@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://nbya5sta0a8r" path="res://Assets/Sound Effects/Record.wav" id="7_koxeg"]
 
 [node name="AudioManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_6xhi2")
 
 [node name="BGAudio" type="AudioStreamPlayer" parent="."]
@@ -29,6 +30,7 @@ bus = &"SFX"
 [node name="Fly" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1riyo")
 volume_db = -5.0
+max_polyphony = 5
 bus = &"SFX"
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]

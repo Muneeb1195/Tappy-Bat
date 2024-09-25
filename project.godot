@@ -11,16 +11,18 @@ config_version=5
 [application]
 
 config/name="Flappy Bird (Clone)"
+config/version="0.1"
 run/main_scene="res://Scenes/Level/level.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://reimagined-large.png"
 boot_splash/use_filter=false
+config/icon="res://Icon.png"
 
 [autoload]
 
 GameManager="*res://Globals/GameManager/game_manager.tscn"
-_fade_to="*res://Globals/Scene_Change/fade.tscn"
+_fade_to="*res://Globals/fade.tscn"
 Audio="*res://Globals/Audio_Manager/audio_manager.tscn"
 
 [debug]
@@ -34,8 +36,8 @@ gdscript/warnings/unsafe_method_access=1
 
 window/size/viewport_width=540
 window/size/viewport_height=1170
+window/size/mode=4
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [input]
@@ -55,7 +57,7 @@ pointing/emulate_touch_from_mouse=true
 
 2d_physics/layer_1="Level"
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Point"
+2d_physics/layer_3="Cielling"
 
 [rendering]
 
@@ -63,4 +65,4 @@ textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.662452, 0.662452, 0.662452, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

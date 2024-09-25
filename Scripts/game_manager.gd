@@ -27,7 +27,6 @@ func save_game() -> void:
 	var json_string : String = JSON.stringify(save())
 	
 	save_file.store_line(json_string)
-	print(high_scores)
 
 func load_game() -> void:
 	if not FileAccess.file_exists("user://savegame.save"):
@@ -43,4 +42,3 @@ func load_game() -> void:
 	
 	var saved_high_scores : Dictionary = json.get_data()
 	high_scores = saved_high_scores["High Scores"]
-	print(high_scores)

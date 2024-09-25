@@ -8,19 +8,19 @@
 content_margin_left = 10.0
 content_margin_right = 10.0
 bg_color = Color(0.784314, 0.27451, 0.196078, 0.490196)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rh2d7"]
 content_margin_left = 10.0
 content_margin_right = 10.0
 bg_color = Color(0.784314, 0.27451, 0.196078, 0.490196)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 
 [node name="LoseScreen" instance=ExtResource("1_posc7")]
 script = ExtResource("2_kbudn")
@@ -42,8 +42,6 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.980392, 0.666667, 0.745098, 1)
-theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_ap5sw")
 text = "Current Score : "
 vertical_alignment = 1
@@ -52,8 +50,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0.980392, 0.666667, 0.745098, 1)
-theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_rh2d7")
 placeholder_text = "Enter Name..."
 max_length = 12

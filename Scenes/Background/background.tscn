@@ -8,7 +8,7 @@
 z_index = -1
 repeat_size = Vector2(270, 0)
 autoscroll = Vector2(-20, 0)
-repeat_times = 5
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 texture = ExtResource("1_e0aul")

@@ -12,7 +12,7 @@ class_name AudioManager
 
 
 func _on_bg_audio_finished() -> void:
-	timer.start(randi_range(30,120))
+	timer.start(randi_range(10,30))
 
 
 func _on_timer_timeout() -> void:
