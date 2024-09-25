@@ -7,4 +7,6 @@
 3. Fonts and Splash by the OG. [<html> kenny.nl <html>](https://www.kenney.nl/)
 4. Made on Godot
 
+## Licence
+
 Code available under MIT license, but do not distribute or sell this on it's own. Feel free to use it to learn.
