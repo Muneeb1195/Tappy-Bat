@@ -1,5 +1,11 @@
 # Tappy Bat a Flappy Bird Inspired Game
 
+Tap along as your bat avoids the cliffs. Game Get Difficult the more you progress.
+
+How long can you survive?
+
+[<html> Play Tappy Bat  <html>](https://the1muneeb.itch.io/tappy-bat)
+
 ## Contributors:
 
 1. Made By Me.
