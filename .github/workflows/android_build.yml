@@ -51,7 +51,9 @@ jobs:
         run: ./godot --headless --import
 
       - name: Install Android Build Template
-        run: ./godot --headless --install-android-template
+        run: |
+          TEMPLATES_DIR="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          cp -r "$TEMPLATES_DIR/android" android
 
       - name: Build Universal APK
         run: |
