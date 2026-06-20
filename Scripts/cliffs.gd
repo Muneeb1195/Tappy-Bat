@@ -25,7 +25,7 @@ func _setup_top() -> void:
 	flip_top = randi_range(0,1)
 	if flip_top:
 		top.scale.x = -1
-	top.position.y = randi_range(-35,-50)
+	top.position.y = randi_range(-50, -35)
 
 func _setup_bottom() -> void:
 	flip_bottom = randi_range(0,1)

@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 			if tween != null:
 				animation.stop()
 				tween.kill()
+				tween = null
 			if not first_jump:
 				first_jump = true
 				level._on_game_started()
@@ -62,7 +63,7 @@ func _check_collision() -> void:
 	var collision_info : KinematicCollision2D = get_last_slide_collision()
 	if collision_info:
 		var collider : StaticBody2D = collision_info.get_collider()
-		if collider.collision_layer == 1 and state != States.DEATH: 
+		if (collider.collision_layer & 1) != 0 and state != States.DEATH: 
 			state = States.DEATH
 
 func _jump(delta : float) -> void:
@@ -87,6 +88,7 @@ func _death(delta : float) -> void:
 	dis_tween.tween_property(player_sprite, "modulate:a",0.0,0.25)
 	await dis_tween.finished
 	dis_tween.kill()
+	dis_tween = null
 	level._on_player_death()
 	queue_free()
 
@@ -95,6 +97,7 @@ func _float_up_down() -> void:
 	tween.tween_property(self, "position:y" , -5 , 0.45)
 	tween.tween_property(self, "position:y" , 5 , 0.45)
 	tween.connect("finished", tween.kill)
+	#tween = null
 
 
 func _on_jump_timer_timeout() -> void:

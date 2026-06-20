@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfw84dm2o1yo6"]
+[gd_scene format=3 uid="uid://bfw84dm2o1yo6"]
 
 [ext_resource type="PackedScene" uid="uid://cujlbmosxwr3d" path="res://Scenes/Background/background.tscn" id="1_jehrt"]
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_tbhn7"]
+[ext_resource type="Script" uid="uid://bffvnf4x1rh3x" path="res://Scripts/level.gd" id="1_tbhn7"]
 [ext_resource type="PackedScene" uid="uid://doen183wvacci" path="res://Scenes/Player/player.tscn" id="2_tx1ev"]
 [ext_resource type="PackedScene" uid="uid://b5v85wom1ocfk" path="res://Scenes/Ground/ground.tscn" id="4_pvji5"]
 [ext_resource type="PackedScene" uid="uid://rr4jxtfog1kr" path="res://Scenes/Background/fore_ground.tscn" id="4_tvtxo"]
@@ -9,25 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://d0jvi0clflv0g" path="res://Scenes/Tap_Hint_Animation/tap_animation.tscn" id="5_k8082"]
 [ext_resource type="PackedScene" uid="uid://b11a8c65psyr4" path="res://Scenes/UI/ui.tscn" id="7_ryjxh"]
 
-[node name="Level" type="Node2D" groups=["Level"]]
+[node name="Level" type="Node2D" unique_id=1353335252 groups=["Level"]]
 script = ExtResource("1_tbhn7")
 
-[node name="Background" parent="." instance=ExtResource("1_jehrt")]
+[node name="Background" parent="." unique_id=2020999070 instance=ExtResource("1_jehrt")]
 
-[node name="ForeGround" parent="." instance=ExtResource("4_tvtxo")]
+[node name="ForeGround" parent="." unique_id=270195277 instance=ExtResource("4_tvtxo")]
 
-[node name="Player" parent="." instance=ExtResource("2_tx1ev")]
+[node name="Player" parent="." unique_id=1862571339 instance=ExtResource("2_tx1ev")]
 
-[node name="TapAnimation" parent="Player" instance=ExtResource("5_k8082")]
+[node name="TapAnimation" parent="Player" unique_id=225658560 instance=ExtResource("5_k8082")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1280683753]
 zoom = Vector2(2.438, 2.438)
 
-[node name="CliffSpawner" parent="." instance=ExtResource("4_twkru")]
+[node name="CliffSpawner" parent="." unique_id=1933927338 instance=ExtResource("4_twkru")]
 
-[node name="Ground" parent="." instance=ExtResource("4_pvji5")]
+[node name="Ground" parent="." unique_id=1948788087 instance=ExtResource("4_pvji5")]
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=400933203]
 color = Color(0, 0, 0, 1)
 energy = 0.0
 blend_mode = 2
@@ -35,4 +35,4 @@ shadow_filter = 1
 height = 1.0
 max_distance = 100.0
 
-[node name="UI" parent="." instance=ExtResource("7_ryjxh")]
+[node name="UI" parent="." unique_id=2026493923 instance=ExtResource("7_ryjxh")]

@@ -61,7 +61,7 @@ func _display_pause_menu() -> void:
 func _display_lose_screen() -> void:
 	Audio.game_over.play()
 	_fade_to._black()
-	lose_screen.current_score.text += "%02d" % [level.points]
+	lose_screen.current_score.text = "Current Score : %02d" % [level.points]
 	_tween_menu(lose_screen)
 
 func _on_restart_pressed() -> void:

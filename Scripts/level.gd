@@ -12,11 +12,14 @@ class_name Level
 @onready var ui : GameUI = $UI
 @onready var game_manager : GM = GameManager
 
-var points : int = 0:
-	set(value) :
-		points = value
-		game_manager.level_points = points
-		ui.call("_display_points",points)
+var _points : int = 0
+var points : int:
+	get:
+		return _points
+	set(value):
+		_points = value
+		game_manager.level_points = _points
+		ui.call("_display_points", _points)
 		if fmod(points,10.0) < 0.1 and _light.energy < 0.9:
 			var tween : Tween = create_tween()
 			tween.tween_property(_light, "energy",_light.energy+0.1,0.5)

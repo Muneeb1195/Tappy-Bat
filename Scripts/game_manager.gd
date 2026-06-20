@@ -23,10 +23,9 @@ func save() -> Dictionary:
 
 func save_game() -> void:
 	var save_file : FileAccess = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-	
 	var json_string : String = JSON.stringify(save())
-	
 	save_file.store_line(json_string)
+	save_file.close()
 
 func load_game() -> void:
 	if not FileAccess.file_exists("user://savegame.save"):
@@ -39,6 +38,8 @@ func load_game() -> void:
 	var parse_result : Error = json.parse(json_string)
 	if parse_result != OK:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-	
-	var saved_high_scores : Dictionary = json.get_data()
-	high_scores = saved_high_scores["High Scores"]
+		return
+	var saved_data : Variant = json.get_data()
+	if saved_data is Dictionary and (saved_data as Dictionary).has("High Scores"):
+		high_scores = (saved_data as Dictionary)["High Scores"]
+	save_file.close()
