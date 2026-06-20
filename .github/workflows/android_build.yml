@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 env:
-  GODOT_VERSION: 4.7
+  GODOT_VERSION: "4.7"
   EXPORT_NAME: Tappy-Bat
 
 jobs:
@@ -25,27 +25,33 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Get Godot version from tag
+      - name: Get version from tag
         id: tag
         run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
 
       - name: Download Godot
         run: |
           wget -q "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
-          unzip "Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          unzip -q "Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
           mv Godot_v${GODOT_VERSION}-stable_linux.x86_64 godot
           chmod +x godot
 
       - name: Download Export Templates
         run: |
-          mkdir -p ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          TEMPLATES_DIR="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          mkdir -p "$TEMPLATES_DIR"
           wget -q "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
           unzip -q "Godot_v${GODOT_VERSION}-stable_export_templates.tpz" -d templates_tmp
-          mv templates_tmp/templates/* ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable/
-          rmdir templates_tmp/templates templates_tmp
+          mv templates_tmp/templates/* "$TEMPLATES_DIR/"
 
       - name: Decode Keystore
         run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > release.keystore
+
+      - name: Install Android Build Template
+        run: |
+          TEMPLATES_DIR="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          cp -r "$TEMPLATES_DIR/android/" ./android/
+          chmod +x ./android/build/gradlew 2>/dev/null || true
 
       - name: Import Project
         run: ./godot --headless --import
@@ -53,7 +59,7 @@ jobs:
       - name: Build Universal APK
         run: |
           mkdir -p builds
-          ./godot --headless --export-release "Android" builds/${EXPORT_NAME}-${{ steps.tag.outputs.VERSION }}-universal.apk
+          ./godot --headless --export-release "Android" "builds/${EXPORT_NAME}-${{ steps.tag.outputs.VERSION }}-universal.apk"
 
       - name: Cleanup Keystore
         if: always()
