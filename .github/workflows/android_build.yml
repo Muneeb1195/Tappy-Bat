@@ -40,9 +40,12 @@ jobs:
         run: |
           TEMPLATES_DIR="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
           mkdir -p "$TEMPLATES_DIR"
-          wget -q "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
-          unzip -q "Godot_v${GODOT_VERSION}-stable_export_templates.tpz" -d templates_tmp
-          mv templates_tmp/templates/* "$TEMPLATES_DIR/"
+          wget "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+          unzip "Godot_v${GODOT_VERSION}-stable_export_templates.tpz" -d templates_tmp
+          ls -la templates_tmp/
+          ls -la templates_tmp/templates/ 2>/dev/null || echo "No templates/ subdir"
+          mv templates_tmp/templates/* "$TEMPLATES_DIR/" 2>/dev/null || mv templates_tmp/* "$TEMPLATES_DIR/"
+          ls -la "$TEMPLATES_DIR/"
 
       - name: Decode Keystore
         run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > release.keystore
@@ -51,9 +54,7 @@ jobs:
         run: ./godot --headless --import
 
       - name: Install Android Build Template
-        run: |
-          TEMPLATES_DIR="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
-          cp -r "$TEMPLATES_DIR/android" android
+        run: ./godot --headless --install-android-build-template
 
       - name: Build Universal APK
         run: |
